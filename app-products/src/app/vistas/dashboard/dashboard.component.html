@@ -1,0 +1,29 @@
+<div class="container">
+    <h1 class="mb-5 text-center">Lista de productos</h1>
+
+    <button type="button" class="btn btn-primary mb-4" (click)="nuevo()">Nuevo producto</button>
+    <input type="text" placeholder="Search...." class="form-control mb-3" style="width: 40%" name="search"/>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Categoria</th>
+          <th scope="col">Sabor</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let producto of productos">
+        <tr *ngIf="producto.estado">
+          <td>{{ producto._id }}</td>
+          <td>{{ producto.nombre }}</td>
+          <td>{{ producto.categoria }}</td>
+          <td>{{ producto.sabor }}</td>
+          <td>{{ producto.precio }}</td>
+          <td><fa-icon [icon]="faEdit" class="btn" type="button" (click)="editar(producto._id)"></fa-icon> <fa-icon [icon]="faTrashAlt" class="btn" type="button" (click)="borrar(producto._id)"></fa-icon></td>
+        </tr>
+      </tbody>
+    </table>
+</div>
